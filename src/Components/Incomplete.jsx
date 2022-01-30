@@ -22,6 +22,8 @@ export default function Incomplete(props) {
                   className={todo.heartClass}
                   icon={faHeart}
                 />
+                <span class="counter">{todo.counter}</span>
+                <button>編集</button>
               </div>
             </li>
           );

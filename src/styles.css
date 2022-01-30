@@ -58,12 +58,23 @@ li {
 }
 
 .heartIcon {
-  margin-left: 10px;
-  margin-top: 15px;
+  margin: 15px 20px 5px 20px;
 }
 
 .noColorHeart {
-  margin-left: 10px;
-  margin-top: 15px;
+  margin: 15px 20px 5px 20px;
   color: white;
+}
+
+.todoListZone {
+  z-index: 0;
+}
+.editZone {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.counter {
+  margin: 8px 5px 5px 0px;
 }

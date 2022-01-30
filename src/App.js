@@ -13,18 +13,21 @@ export default function App() {
   const [incompleteList, setIncomplete] = useState([
     {
       message: "Hello world1",
-      heartClass: "noColorHeart"
+      heartClass: "noColorHeart",
+      counter: 0
     },
     {
       message: "Hello world2",
-      heartClass: "heartIcon"
+      heartClass: "heartIcon",
+      counter: 1
     }
   ]);
 
   const [completeList, setComplete] = useState([
     {
       message: "fire",
-      heartClass: "noColorHeart"
+      heartClass: "noColorHeart",
+      counter: 0
     }
   ]);
 
@@ -35,7 +38,8 @@ export default function App() {
     const todoList = [...incompleteList];
     todoList.push({
       message: text,
-      heartClass: "noColorHeart"
+      heartClass: "noColorHeart",
+      counter: 0
     });
     setIncomplete(todoList);
     setText("");
@@ -77,27 +81,31 @@ export default function App() {
     const todoList = [...incompleteList];
     if (todoList[index].heartClass === "noColorHeart") {
       todoList[index].heartClass = "heartIcon";
+      todoList[index].counter += 1;
       setIncomplete(todoList);
     } else {
       todoList[index].heartClass = "noColorHeart";
+      todoList[index].counter -= 1;
       setIncomplete(todoList);
     }
   };
 
   return (
     <div>
-      <Inputarea
-        text={text}
-        handleChange={handleChange}
-        addTodoList={addTodoList}
-      />
-      <Incomplete
-        list={incompleteList}
-        intoComplete={intoComplete}
-        deleteList={deleteList}
-        changeHeart={changeHeart}
-      />
-      <Complete list={completeList} backToIncomplete={backToIncomplete} />
+      <div className="todoListZone">
+        <Inputarea
+          text={text}
+          handleChange={handleChange}
+          addTodoList={addTodoList}
+        />
+        <Incomplete
+          list={incompleteList}
+          intoComplete={intoComplete}
+          deleteList={deleteList}
+          changeHeart={changeHeart}
+        />
+        <Complete list={completeList} backToIncomplete={backToIncomplete} />
+      </div>
     </div>
   );
 }
